@@ -9,17 +9,17 @@ export function sortStrings(arr, param = "asc") {
     if (param === "desc")
     {
         arrSorted = arrSorted.sort((a,b)=>b.localeCompare(
-            a, { sensitivity: "base" }
-            ));
+            a, "ru", "en", {  caseFirst: "upper", sensitivity: "base" }
+            )
+        );
     }
     else
     {
         arrSorted = arrSorted.sort((a,b)=>b.localeCompare(
-            a, "ru", {  caseFirst: "upper", sensitivity: "case" }
+            a, "ru", {  caseFirst: "upper", sensitivity: "case" }, "en",  {  caseFirst: "lower", sensitivity: "base" }
             ));
         arrSorted = arrSorted.reverse();
     }
 
     return  arrSorted;
 }
-
