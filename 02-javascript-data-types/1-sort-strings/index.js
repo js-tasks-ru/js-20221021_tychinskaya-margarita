@@ -14,10 +14,9 @@ export function sortStrings(arr, param = "asc") {
     }
     else
     {
-        let collator = new Intl.Collator(
-            undefined, { caseFirst: "upper", sensitivity: "base"}
-            );
-        arrSorted = arrSorted.sort((a,b)=>collator.compare(b,a));
+        arrSorted = arrSorted.sort((a,b)=>b.localeCompare(
+            a, "ru", {  caseFirst: "upper", sensitivity: "case" }
+            ));
         arrSorted = arrSorted.reverse();
     }
 
