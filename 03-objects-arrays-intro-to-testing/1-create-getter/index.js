@@ -5,4 +5,21 @@
  */
 export function createGetter(path) {
 
+    const getter = (obj) => {
+        if (typeof(path)!=="string")
+        {
+            return;
+        }
+
+        const arrPath = path.split(".");
+        let findObj = obj;
+        
+        for (let i = 0; i < arrPath.length; i++) {
+            findObj = findObj[arrPath[i]];
+            if (!findObj)
+            break;
+        }
+            return findObj;
+    }  
+    return getter;
 }
